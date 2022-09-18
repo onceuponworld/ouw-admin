@@ -17,7 +17,7 @@ func kingdomHandler(w http.ResponseWriter, r *http.Request) {
 
 		profile := r.FormValue(API_PARAM_PROFILE)
 
-		k := Profile{}
+		k := ouwsdk.Kingdom{}
 
 		err := json.Unmarshal([]byte(profile), &k)
 
