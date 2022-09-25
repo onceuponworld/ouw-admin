@@ -12,9 +12,16 @@ const (
 
 
 const (
-	DEFAULT_KINGDOM_NAME_LENGTH			= 2
+	DEFAULT_NAME_LENGTH_MIN					= 2
 	DEFAULT_CHARS_MIN       				= 1
 	DEFAULT_FORM_SIZE								= 20000
+)
+
+
+const (
+	QUERY_KID									= "kid"
+	QUERY_MID									= "mid"
+	QUERY_PID                 = "pid"
 )
 
 

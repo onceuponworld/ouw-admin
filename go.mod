@@ -2,7 +2,10 @@ module github.com/onceuponworld/ouw-admin
 
 go 1.17
 
-require github.com/onceuponworld/ouw-sdk v0.0.0-20220918043355-990885630b33
+require (
+	github.com/gorilla/mux v1.8.0
+	github.com/onceuponworld/ouw-sdk v0.0.0-20220925083334-ff9f9a63fce7
+)
 
 require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
