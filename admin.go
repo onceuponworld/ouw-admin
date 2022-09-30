@@ -12,13 +12,6 @@ const (
 
 
 const (
-	DEFAULT_NAME_LENGTH_MIN					= 2
-	DEFAULT_CHARS_MIN       				= 1
-	DEFAULT_FORM_SIZE								= 20000
-)
-
-
-const (
 	QUERY_KID									= "kid"
 	QUERY_MID									= "mid"
 	QUERY_PID                 = "pid"
@@ -26,9 +19,11 @@ const (
 
 
 const (
+	API_PARAM_DATA            = "data"
 	API_PARAM_PROFILE					= "profile"
 	API_PARAM_COWS						= "cows"
 	API_PARAM_KINGDOM_NAME		= "name"
+	API_PARAM_KINGDOM					= "kingdom"
 	API_PARAM_LAND						= "land"
 	API_PARAM_NAME						= "name"
 	API_PARAM_POPULATION			= "population"

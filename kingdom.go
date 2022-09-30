@@ -38,6 +38,28 @@ func kingdomHandler(w http.ResponseWriter, r *http.Request) {
 
 			log.Println(k)
 
+			kingdom := r.FormValue(API_PARAM_KINGDOM)
+
+			log.Println(kingdom)
+
+			if ouwsdk.CheckStr(kingdom, ouwsdk.DEFAULT_NAME_LENGTH_MIN) {
+
+				kingdomMod := ouwsdk.Kingdom{}
+
+				err := json.Unmarshal([]byte(kingdom), &kingdomMod)
+	
+				if err != nil {
+					log.Println(err)
+				} else {
+					log.Println(kingdomMod)
+					ouwsdk.KingdomUpdate(kid, kingdomMod)
+				}
+	
+			} else {
+				w.WriteHeader(http.StatusBadRequest)
+			}
+
+
 		} else {
 			w.WriteHeader(http.StatusNotFound)
 		}
@@ -48,24 +70,29 @@ func kingdomHandler(w http.ResponseWriter, r *http.Request) {
 
 		kid := vars[QUERY_KID]
 
-		if ouwsdk.SetExist(ouwsdk.KingdomsKey(), kid) {
+		if len(kid) == 0 {
 
-			k := ouwsdk.KingdomGet(kid)
+			kingdoms := ouwsdk.KingdomGetAll()
 
-			log.Println(k)
+			buf := ouwsdk.ToJson(kingdoms)
 
-			j, err := json.Marshal(k)
+			w.Write(buf)
+		
+		} else {
 
-			if err != nil {
-				log.Println(err)
+			if ouwsdk.SetExist(ouwsdk.KingdomsKey(), kid) {
+
+				k := ouwsdk.KingdomGet(kid)
+	
+				buf := ouwsdk.ToJson(k)
+
+				w.Write(buf)
+	
 			} else {
-				w.Write(j)
+				w.WriteHeader(http.StatusNotFound)
 			}
 
-		} else {
-			w.WriteHeader(http.StatusNotFound)
 		}
-
 
 	default:
 		log.Println(ERR_UNSUPPORTED_METHOD)

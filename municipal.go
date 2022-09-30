@@ -24,7 +24,7 @@ func municipalHandler(w http.ResponseWriter, r *http.Request) {
 
 			name := r.FormValue(API_PARAM_NAME)
 
-			if ouwsdk.CheckStr(name, DEFAULT_NAME_LENGTH_MIN) {
+			if ouwsdk.CheckStr(name, ouwsdk.DEFAULT_NAME_LENGTH_MIN) {
 
 				key := ouwsdk.MunicipalsKey(kid)
 

@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/onceuponworld/ouw-sdk v0.0.0-20220925083334-ff9f9a63fce7
+	github.com/onceuponworld/ouw-sdk v0.0.0-20220925145518-ce0c6832f389
 )
 
 require (

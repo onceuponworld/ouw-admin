@@ -31,6 +31,8 @@ endpoint | params | auth | notes
 ---|---|---|---
 POST /api/kingdoms | profile | admin | add kingdom
 GET /api/kingdoms | | | get all kingdoms
+GET /api/kingdoms/:kid | | | get kingdom
+PUT /api/kingdoms/:kid | | | update kingdom
 POST /api/kingdoms/:id/municipals | name, population, land, wealth, trees, rocks, cows | admin | create municipal
 GET /api/kingdoms/:id/municipals/:id | | admin | get municipal info
 GET /api/kingdoms/:id/municipals | name, land, wealth, trees, rocks, cows | admin | get municipals
